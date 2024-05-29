@@ -66,6 +66,13 @@ document.getElementById('calculateBtn').addEventListener('click', function () {
     // Get the origin and destination values
     var origin = document.getElementById('origin').value;
     var destination = document.getElementById('destination').value;
+    const submitButton = document.querySelector("calculateBtn");
+
+    form.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            submitButton.click(); // Simulate a click on the submit button
+        }
+    });
 
     // Check if both origin and destination are provided
     if (origin && destination) {
@@ -83,6 +90,8 @@ document.getElementById('calculateBtn').addEventListener('click', function () {
         alert('Please enter both origin and destination.');
     }
 });
+
+
 
 // Attach the event listener to the window load event to initialize the Autocomplete
 google.maps.event.addDomListener(window, 'load', initializeAutocomplete);
