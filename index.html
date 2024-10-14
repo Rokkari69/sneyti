@@ -31,3 +31,105 @@
 </div>
 </body>
 </html>
+
+//Minn bíll
+<!DOCTYPE html>
+<html lang="is">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minn bíll</title>
+    <style>
+       .bilaval {
+    background-color: #003f8c;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    max-width: 400px;
+    margin: auto;
+}
+
+.bilaval input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+        .bilaval {
+            background-color: #003f8c;
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .bilaval input {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <section id="minn-bill" class="bilaval">
+        <h2>Minn bíll</h2>
+        <form>
+            <label for="bilategund">Bílategund:</label>
+            <input type="text" id="bilategund" name="bilategund" placeholder="Skrifaðu bílategund">
+
+            <label for="undirtegund">Undirtegund:</label>
+            <input type="text" id="undirtegund" name="undirtegund" placeholder="Skrifaðu undirtegund">
+
+            <label for="argerd">Árgerð:</label>
+            <input type="number" id="argerd" name="argerd" placeholder="Sláðu inn árgerð">
+
+            <p>Þín eyðsla: <span id="eydsla">--</span></p>
+        </form>
+    </section>
+
+    <script>
+        document.getElementById('argerd').addEventListener('input', function() {
+    const argerd = parseInt(this.value, 10);
+    let eydsla = '--';
+
+    if (argerd) {
+        // Reikna út frá árgerð, þetta gæti verið útfært með flóknari reiknireglu
+        if (argerd >= 2018) {
+            eydsla = '5.8 til 6.4';
+        } else if (argerd >= 2015) {
+            eydsla = '6.0 til 6.8';
+        } else {
+            eydsla = '6.5 til 7.5';
+        }
+    }
+
+    document.getElementById('eydsla').textContent = eydsla;
+});
+
+        document.getElementById('argerd').addEventListener('input', function() {
+            const argerd = parseInt(this.value, 10);
+            let eydsla = '--';
+
+            if (argerd) {
+                // Reikna út frá árgerð, þetta gæti verið útfært með flóknari reiknireglu
+                if (argerd >= 2018) {
+                    eydsla = '5.8 til 6.4';
+                } else if (argerd >= 2015) {
+                    eydsla = '6.0 til 6.8';
+                } else {
+                    eydsla = '6.5 til 7.5';
+                }
+            }
+
+            document.getElementById('eydsla').textContent = eydsla;
+        });
+    </script>
+</body>
+</html>
